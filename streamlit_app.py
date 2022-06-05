@@ -3,9 +3,9 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 import streamlit.components.v1 as components
-from PIL import Image, ImageFile
+
 import math
-import urllib.request
+
 
 # functions resposibble for the animation
 # If we are using it localy
@@ -117,10 +117,7 @@ elif add_selectbox == "Nominal Ocular Hazard Distance (NOHD)":
     with st.container():
         lefts_column, _right_column = st.columns(2)
         with lefts_column:
-            formula_in_order = urllib.request.urlretrieve('https://github.com/D-on3/Streamlit_Laser_Safety_Calculations/blob/main/jpg/where_nohd.png', "where_nohd.jpg")
-            image = Image.open('where_nohd.jpg')
-
-            st.image(image)
+            pass
 
     with st.container():
         mpe = 0
