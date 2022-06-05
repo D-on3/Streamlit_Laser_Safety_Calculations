@@ -1,4 +1,4 @@
 streamlit
 streamlit-lottie
-PIL
+pillow
 math
