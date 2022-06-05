@@ -641,43 +641,5 @@ h3 {
 </html>
             """
 
-        # ---Contact form---init
-        components.html(contact_form, height=550, scrolling=False)
-        social_media = '''<head>
-                                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                                    <style>
-                                    .fa {
-                                      margin : auto ;
-                                      padding: 25px;
-                                      font-size: 30px;
-                                      width: 20px;
-                                      height: 20px;
-                                      text-align: center;
-                                      text-decoration: none;
-                                      margin-left: auto;
-                                      margin-right:auto;
 
 
-                                    }
-
-                                    .fa:hover {
-                                        opacity: 0.7;
-                                    }
-
-                                    </style>
-                                    </head>
-                                    <body>
-                                    <div class="container">
-                                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                                    <a style = '                                   margin: 0;
-                                    position: absolute;
-  top: 10%;
-  left: 60%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);'' href="https://github.com/D-on3" class="fa fa-github">GitHub</a>
-                                    <a  style = 'margin: 0; position: absolute;top: 10%;left: 80% -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);'href="https://www.facebook.com/profile.php?id=100004700626557" class="fa fa-facebook">acebook</a>
-                                    </div>
-                                    </body>'''
-        components.html(social_media, height=250, width=250)
