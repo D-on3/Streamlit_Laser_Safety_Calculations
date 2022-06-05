@@ -3,7 +3,6 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 import streamlit.components.v1 as components
-
 import math
 
 
@@ -27,31 +26,36 @@ st.set_page_config(page_title="Laser Safety Calculations", page_icon=':orange_bo
 
 # -------------SIDE BARS -----------------------
 # -----------Using object notation--------------
-add_selectbox = st.sidebar.selectbox(
-    "-------------------------------MENU-----------------------------------",
-    ('Home', "Maximum permissible exposure (MPE)", "Nominal Ocular Hazard Distance (NOHD)", "Nominal Hazard Zone (NHZ)")
-)
+
+
+add_selectbox = st.sidebar.selectbox('MENU', (
+    'Home', "Maximum permissible exposure (MPE)", "Nominal Ocular Hazard Distance (NOHD)", "Nominal Hazard Zone (NHZ)"))
 if add_selectbox == "Maximum permissible exposure (MPE)":
-    _left_column,midle_column,_right_column= st.columns(3)
+    _left_column, midle_column, _right_column = st.columns(3)
     with midle_column:
-        st.markdown("""<h1 style='text-align: center;
-      width: 470px;
-      height: 160px;
-      border-radius: 50px;
-      background-image: linear-gradient(yellow, orange);
-      animation-name: example;
-      animation-duration: 4s;'> Maximum Permissible Exposure (MPE) </h1>""",
-                unsafe_allow_html=True)
-    st.write('''<h3 style='text-align: center; color: grey;'> The MPE of a laser depends on the characteristics of 
+        st.markdown('''<h3 style='
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+        text-align: center;
+             width: 300px;
+             height: 90px;
+             border-radius: 45px;
+             background-image: linear-gradient(yellow, orange);
+             animation-name: example;
+             animation-duration: 4s;'>
+           Maximum Permissible Exposure (MPE) </h3>''', unsafe_allow_html=True)
+
+    st.write('''<h5 style='text-align: center; color: grey;'> The MPE of a laser depends on the characteristics of 
     the laser and the time of exposure.MPE is the maximum level of laser radiation to which a person may be exposed
      without hazardous effects or biological changes in the eye or skin. The MPE is determined by the wavelength of 
      of laser, the energy involved, and the duration of the exposure. One of the most useful values in laser safety
     calculations is the Maximum Permissible Exposure (MPE). This is the irradiance or radiant exposure that may be 
     incident upon the eye (or the skin) without causing an adverse biological affect. The MPE varies by wavelength 
     and duration of exposure and is documented in tables published in ANSI z136.1 standard. We can think of this as 
-    your laser safety speed limit. </h3>''', unsafe_allow_html=True)
+    your laser safety speed limit. </h5>''', unsafe_allow_html=True)
 
-    st.markdown("<h1 style='text-align: center; color: grey;'>Continuous Wave Laser</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: grey;'>Continuous Wave Laser</h3>", unsafe_allow_html=True)
 
     with st.container():
         st.write("")
@@ -92,7 +96,7 @@ if add_selectbox == "Maximum permissible exposure (MPE)":
 
 elif add_selectbox == "Nominal Ocular Hazard Distance (NOHD)":
     add_selectbox1 = st.sidebar.selectbox(
-        "-------------------------------MENU-----------------------------------",
+        "MENU",
         ('NOHD for a lens on laser', "NOHD for a fiber laser: Multi-mode fibers",
          "NOHD for a fiber laser:Single-mode fibers")
     )
@@ -100,19 +104,23 @@ elif add_selectbox == "Nominal Ocular Hazard Distance (NOHD)":
     left_column, middle_column, right_column = st.columns(3)
 
     with middle_column:
-        st.markdown('''<h1 style='text-align: center;
-          width: 500px;
-          height: 160px;
-          border-radius: 45px;
-          background-image: linear-gradient(yellow, orange);
-          animation-name: example;
-          animation-duration: 4s;'>
-         Nominal Ocular Hazard Distance (NOHD) </h1>''', unsafe_allow_html=True)
+        st.markdown('''<h3 style='
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+        text-align: center;
+             width: 300px;
+             height: 90px;
+             border-radius: 45px;
+             background-image: linear-gradient(yellow, orange);
+             animation-name: example;
+             animation-duration: 4s;'>
+           Nominal Ocular Hazard Distance (NOHD) </h3>''', unsafe_allow_html=True)
 
-    st.write('''<h3 style='text-align: center; color: grey;'> NOHD sometimes referred to as the Nominal Hazard Distance,
+    st.write('''<h5 style='text-align: center; color: grey;'> NOHD sometimes referred to as the Nominal Hazard Distance,
         is the distance along the axis of emitted beam at which the ireradiance is equal to the MPE. The NOHD 
         is dependent on beam characteristics such as the power, diameter, and divergence.The NOHD is usually much 
-        greater than the largest dimension of your laboratory space. </h3>''',
+        greater than the largest dimension of your laboratory space. </h5>''',
              unsafe_allow_html=True)
     with st.container():
         lefts_column, _right_column = st.columns(2)
@@ -145,6 +153,7 @@ elif add_selectbox == "Nominal Ocular Hazard Distance (NOHD)":
                         first_nohd = (f_0_focal_lenght_lens / b0_diamter_of_beam) * (
                                 (p_0_power_of_the_laser / (math.pi * mpe)) ** 0.5)
 
+
                         class NOHD:
                             first_case = f'{first_nohd:.3f}'
 
@@ -175,14 +184,14 @@ elif add_selectbox == "Nominal Ocular Hazard Distance (NOHD)":
             with right_column:
                 mpe = st.number_input('MPE value: mW')
                 na_numerical_aperture_of_the_fiber = st.number_input('Numerical aperture of the fiber')
-                # f_0_focal_lenght_lens = st.number_input('Focal length of a lens-f0')
-                # b0_diamter_of_beam = st.number_input("Diameter of beam incident on a focusing lens-b0")
                 p_0_power_of_the_laser = st.number_input('Power of the laser Ф')
 
                 if na_numerical_aperture_of_the_fiber > 0 and p_0_power_of_the_laser > 0 and mpe > 0:
                     try:
                         second_nohd = (1.7 / na_numerical_aperture_of_the_fiber) * (
                                 (p_0_power_of_the_laser / (math.pi * mpe)) ** 0.5)
+
+
                         class NOHD:
                             first_case = f'{second_nohd:.3f}'
 
@@ -223,6 +232,8 @@ elif add_selectbox == "Nominal Ocular Hazard Distance (NOHD)":
 
                         class NOHD:
                             first_case = f'{third_nohd:.3f}'
+
+
                         HTML_File = open('result_nohd_3.html', 'r')
                         result = HTML_File.read().format(first=NOHD())
 
@@ -245,23 +256,28 @@ elif add_selectbox == "Nominal Ocular Hazard Distance (NOHD)":
 elif add_selectbox == "Nominal Hazard Zone (NHZ)":
     _left_column, middle_column, _right_column = st.columns(3)
     with middle_column:
-        st.write('''<h1 style='text-align: center;
-          width: 500px;
-          height: 160px;
-          border-radius: 45px;
-          background-image: linear-gradient(yellow, orange);
-          animation-name: example;
-          animation-duration: 4s;'>
-           Nominal Hazard Zone (NHZ)</h1>''', unsafe_allow_html=True)
-    st.write('''<h3 style='text-align: center; color: grey;'> The Nominal Hazard Zone (NHZ). This is a distance within
+        st.markdown('''<h3 style='
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+        text-align: center;
+             width: 300px;
+             height: 90px;
+             border-radius: 45px;
+             background-image: linear-gradient(yellow, orange);
+             animation-name: example;
+             animation-duration: 4s;'>
+          Nominal Hazard Zone (NHZ) </h3>''', unsafe_allow_html=True)
+
+    st.write('''<h5 style='text-align: center; color: grey;'> The Nominal Hazard Zone (NHZ). This is a distance within
                 which exposure to a direct, reflected, or scattered beam is greater than the MPE. Mirrors, optics, and 
                 reflective materials in the beam path may result in diffuse or specular reflections in unintended 
                 directions. Specular reflections are hazardous over a greater range than diffuse reflections. 
                 If you are in the NHZ,
-                you are at risk of an exposure above the MPE.</h3>
-                <h3 style='text-align: center; color: grey;'>The NOHD is the dominant value for determining the radial extend of the NHZ if the bean be reasonably
+                you are at risk of an exposure above the MPE.</h5>
+                <h5 style='text-align: center; color: grey;'>The NOHD is the dominant value for determining the radial extend of the NHZ if the bean be reasonably
 expected to be incidentally directed towards people. The NHZ surrounding an optical set-up may be
-calculated using the following formulas: </h3>''', unsafe_allow_html=True)
+calculated using the following formulas: </h5>''', unsafe_allow_html=True)
     left_column, right_column = st.columns(2)
     diffuse_reflection = 0
     specular_reflection = 0
@@ -275,26 +291,28 @@ calculated using the following formulas: </h3>''', unsafe_allow_html=True)
         if spectral_reflectance > 0 and mpe > 0 and p_0_power_of_the_laser > 0 and reflection > 0:
 
             try:
-                diffuse_reflection = (((spectral_reflectance * p_0_power_of_the_laser * math.cos(reflection))/
-                                  (math.pi * mpe))**0.5)*10
-                specular_reflection = ((1/f_emergent_beam_divergence)*((1.27 * spectral_reflectance
-                                                                    * p_0_power_of_the_laser)/2.55)) ** 0.5
+                diffuse_reflection = (((spectral_reflectance * p_0_power_of_the_laser * math.cos(reflection)) /
+                                       (math.pi * mpe)) ** 0.5) * 10
+                specular_reflection = ((1 / f_emergent_beam_divergence) * ((1.27 * spectral_reflectance
+                                                                            * p_0_power_of_the_laser) / 2.55)) ** 0.5
 
                 specular_reflection = specular_reflection / 3.15608
+
 
                 class NHZ:
                     first_case = f'{diffuse_reflection:.2f}'
                     second_case = f'{specular_reflection:.2f}'
 
+
                 HTML_File = open('result_nhz.html', 'r')
-                result = HTML_File.read().format(first=NHZ(),second=NHZ())
+                result = HTML_File.read().format(first=NHZ(), second=NHZ())
 
             except ZeroDivisionError:
                 diffuse_reflection = 0
                 specular_reflection = 0
 
     with left_column:
-        #TODO: Formula-latex
+        # TODO: Formula-latex
 
         if diffuse_reflection != 0 and specular_reflection != 0:
             st.write(result, unsafe_allow_html=True)
@@ -305,127 +323,337 @@ else:
 
     with left_column:
         animation = load_lottie_url('https://assets8.lottiefiles.com/private_files/lf30_jpe6wzcq.json')
-        st_lottie(animation, height=200, key='134')
+        st_lottie(animation, height=90, key='134')
 
     with middle_column:
-        st.markdown('''<h1 style='text-align: center;
-      width: 470px;
-      height: 160px;
-      border-radius: 50px;
-      background-image: linear-gradient(yellow, orange);
-      animation-name: example;
-      animation-duration: 4s;'>
-    LASER SAFETY CALCULATIONS </h1>''' , unsafe_allow_html=True)
+        st.markdown('''<h3 style='
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+        text-align: center;
+             width: 300px;
+             height: 90px;
+             border-radius: 45px;
+             background-image: linear-gradient(yellow, orange);
+             animation-name: example;
+             animation-duration: 4s;'>
+           LASER SAFETY CALCULATIONS </h3>''', unsafe_allow_html=True)
 
     with right_column:
         animation = load_lottie_url('https://assets8.lottiefiles.com/private_files/lf30_jpe6wzcq.json')
-        st_lottie(animation, height=200, key='122')
+        st_lottie(animation, height=90, key='122')
 
     left_column, right_column = st.columns(2)
     with left_column:
 
-        st.markdown("""<h3 style='text-align: center; color: grey;'>
+        st.markdown("""<h5 style='text-align: center; color: grey;'>
         The human body is vulnerable to the output of certain lasers, and under certain circumstances, exposure can
          result in damage to the eye and skin. Research relating to
     injury thresholds of the eye and skin has been carried out in order to understand the biological hazards of laser
     radiation. The primary objective of the laser safety program is
     to ensure that no laser radiation in excess of the maximum permissible exposure (MPE) limit reaches the human eye 
-    or skin.</h3>""", unsafe_allow_html=True)
+    or skin.</h5>""", unsafe_allow_html=True)
     with right_column:
-        st.markdown('''<h3 style='text-align: center; color: grey;'> Additionally, the program is designed to ensure 
+        st.markdown('''<h5 style='text-align: center; color: grey;'> Additionally, the program is designed to ensure 
         that adequate protection against collateral hazards is 
     provided. These collateral hazards include the risk of electrical shock, fire hazard from a beam or from use of dyes
-    and solvents, and chemical exposures from use of chemicals and vaporization of targets.</h3>''' ,
+    and solvents, and chemical exposures from use of chemicals and vaporization of targets.</h5>''',
                     unsafe_allow_html=True)
-    st.write('''<h3 style='text-align: center; color: grey;'> If I can be of assistance, please do not hesitate to contact me</h3>''',
-                 unsafe_allow_html=True)
+    _left_column, midle_column, _right_column = st.columns(3)
+    with midle_column:
+        st.write(
+            '''<h5 style='text-align: center; color: grey;'> If I can be of assistance, please do not hesitate to contact me</h5>''',
+            unsafe_allow_html=True)
 
-    st.write('''<h3 style='text-align: center; color: grey;'>
+        st.write('''<h5 style='text-align: center; color: grey;'>
                 If you have suggestions , or some recommendations for extending the functionality of this calculator or
                 have some other idea. Please let me know if you have further questions on this matter. If you experience
-                any further problems, please feel free to contact me. </h3>''',unsafe_allow_html=True)
-
+                any further problems, please feel free to contact me. </h5>''', unsafe_allow_html=True)
 
     # st.markdown(social_media, unsafe_allow_html=True)
 
     with st.container():
 
-        left_column, middle_column_column, right_column = st.columns(3)
+        contact_form = """
 
-        with left_column:
-
-            contact = load_lottie_url('https://assets1.lottiefiles.com/packages/lf20_lshv4smz.json')
-            st_lottie(contact, height=500, key='4')
-        with right_column:
-
-            contact = load_lottie_url('https://assets1.lottiefiles.com/packages/lf20_lshv4smz.json')
-            st_lottie(contact, height=500, key='3')
-        with middle_column_column:
-            # ---- CONTACT ----
-            contact_form = """
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <style>
-    .container {
-  height: 480px;
-  width: 350px;
-  position: centered;
-  background-image: linear-gradient(#7ED321, #F5A623);
-  border-radius: 25px;
-  padding: 18px;
-  border: 2px solid #7ED321;
-}
-        .button:hover {
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-  opacity: 0.7;
-  background-image: linear-gradient(yellow, lime );
+<script type="text/javascript">
+    document.getElementById("btn").onclick = function () {
+        location.href = "www.google.com";
+    };
+</script>
+
+
+    <title>Title</title>
+    <style>
+    :root {
+
+
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+    font-size: 62.5%;
+
+
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0
+    padding: 0;
+    color: black;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 1rem;
+
+}
+
+
+h1 > span {
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 3.4rem;
+    margin-bottom: 2.2rem;
+    font-weight: 700;
+    color: white;
+    padding: 10px;
+    background-image: linear-gradient(powderblue, darkblue);
+    border-radius: 15px;
+
+
+}
+
+h2 {
+    font-size: 4.2rem;
+    margin-bottom: 2.2rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 2.2rem;
+    margin-bottom: 2.2rem;
+    font-weight: 500;
+}
+
+
+.holders {
+    width: 100vw;
+    height: 90vh;
+    position: centered;
+    border-radius: 25px;
+
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margins: 0 auto;
+    opacity: 1.5;
+}
+
+
+.contact{
+    width: 300px;
+    height:420px;
+    border: 1px solid #ffe605;
+    background-image:radial-gradient(white, #ffe605);
+    align-items: center;
+
+    border-radius: 25px;
+    opacity: 1;
+    padding: 8px;
+
+
+
+
+
+}
+
+/*Utilities*/
+
+
+}
+
+.container  {
+    width: 100%;
+
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+
+}
+
+#input_name,
+#input_email{
+    color: grey;
+    width: 100%;
+    padding:12px;
+    border: 2px #F5A623;
+    border-radius: 15px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+    resize:none;
+
+}
+#input_msg{
+
+    color: grey;
+    width: 100%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;
+    height: 230px;
+    margin-top: 5px;
+    resize:none;
+    border: 1px solid #ffe605;
+}
+/*Buttons*/
+
+
+.btn {
+    position: absolute;
+    z-index: 1;
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    width: 20rem;
+    text-align: center;
+    text-decoration: none;
+    color: #995300;
+    border: 3px solid #ffe400;
+    border-radius: 35px;
+     background-image:radial-gradient(#ffe605,white);
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    box-shadow:: 0 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+
+}
+
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+
+}
+
+.lot{
+
+        position: fixed;
+    z-index: -1;
+    margin-right: 10px;
+    width: 700px;
+    height: 700px;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+.lot1{
+    transform: rotate(180deg);
+        position: fixed;
+    z-index: -1;
+    margin-right: 10px;
+    width: 750px;
+    height: 750px;
+    margin-bottom: -50px;
+    opacity: 0.95;
 }
     </style>
+ <link rel="stylesheet"href="scratch.css">
 </head>
 <body>
+
 <div  class="container">
 
+        <div class="holders">
+            <!---https://lottiefiles.com/69964-nature-contact-->
+            <lottie-player class = 'lot' src="https://assets9.lottiefiles.com/packages/lf20_lshv4smz.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player>
 
+            <div class="contact">
             <form action="https://formsubmit.co/330659a1fbcf955e6728859239fc1888" method="POST">
                 <input type="hidden" name="_captcha" value="false">
-                <input style="color: grey;  width: 100%;padding: 12px;border: 2px solid #7ED321; border-radius: 15px;
-                box-sizing: border-box; margin-top: 6px; margin-bottom: 16px; resize:none;" type="text" name="name"
-                       placeholder="Your name" required >
-                <br><input style="color: grey;  width: 100%;padding: 12px;border: 2px solid #7ED321; border-radius: 15px;
-                box-sizing: border-box; margin-top: 6px; margin-bottom: 16px; resize:none;" type="email" name="email" placeholder="Your email" required >
-                <br><textarea style="color: grey; height: 270px; width: 100%;padding: 12px;border: 2px solid #7ED321; border-radius: 15px;
-                box-sizing: border-box; margin-top: 6px; margin-bottom: 16px; resize:none" name="message" placeholder="Your message here" required >
-                </textarea>
+                <br><input  id = 'input_name' type="text" name="name" placeholder="Your name" required >
+                <br><input  id = 'input_email' type="email" name="email" placeholder="Your email" required >
 
+                <br><textarea id = 'input_msg' name="message" placeholder="Your message here" required >
+                </textarea><br>
 
-    <button class = 'button' style="color: black ; width : 120px; height:50px; border-radius: 25px; margin: 0;
-  position: absolute;
-  top: 90%;
-  left: 42%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);border: 2px solid yellowgreen;" type="submit"> Send </button>
+<!--css text area  style ='color: grey;  width: 100%;padding: 12px;border: 5px solid yellowgreen; border-radius: 15px;
+                box-sizing: border-box; margin-top: 6px; margin-bottom: 16px; resize:none;'-->
+
+               <button id = 'btn' onclick='myhref()' = 'contact_form.html' " class = 'btn' type="submit"> Send </button>
+
 
             </form>
+            </div>>
+
+            <!--<lottie-player class = 'lot1' src="https://assets9.lottiefiles.com/packages/lf20_lshv4smz.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player>-->
+        </div>
 </div>
+
+
+
 </body>
+</html>
             """
 
-            # ---Contact form---init
-            components.html(contact_form, height=550, scrolling=False)
+        # ---Contact form---init
+        components.html(contact_form, height=550, scrolling=False)
         social_media = '''<head>
                                     <meta name="viewport" content="width=device-width, initial-scale=1">
                                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                                     <style>
                                     .fa {
-                                      margin = 0;
+                                      margin : auto ;
                                       padding: 25px;
                                       font-size: 30px;
                                       width: 20px;
                                       height: 20px;
                                       text-align: center;
                                       text-decoration: none;
-                                      margin: 15px 15px;
+                                      margin-left: auto;
+                                      margin-right:auto;
 
 
                                     }
@@ -449,8 +677,4 @@ else:
   transform: translate(-50%, -50%);'href="https://www.facebook.com/profile.php?id=100004700626557" class="fa fa-facebook">acebook</a>
                                     </div>
                                     </body>'''
-
-        final_lef_column,final_midle_column,final_right_column=st.columns(3)
-        with final_midle_column:
-            components.html(social_media, height=250)
-
+        components.html(social_media, height=250, width=250)
