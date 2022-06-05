@@ -643,3 +643,6 @@ h3 {
 
 
 
+
+        # ---Contact form---init
+        components.html(contact_form, height=550, scrolling=False)
