@@ -295,7 +295,7 @@ calculated using the following formulas: </h5>''', unsafe_allow_html=True)
                                        (math.pi * mpe)) ** 0.5) * 10
                 specular_reflection = ((1 / f_emergent_beam_divergence) * ((1.27 * spectral_reflectance
                                                                             * p_0_power_of_the_laser) / 2.55)) ** 0.5
-
+                # Todo: There is an error in the calculations.
                 specular_reflection = specular_reflection / 3.15608
 
 
@@ -313,6 +313,9 @@ calculated using the following formulas: </h5>''', unsafe_allow_html=True)
 
     with left_column:
         # TODO: Formula-latex
+        st.latex(r'''r_{NHZ}=\left(\frac{\rho_\lambda Ф\cos\theta}{\pi MPE}\right)^{\frac{1}{2}}
+                                                                     ''')
+        st.latex(r'''r_{NHZ}=\frac{1}{\phi}\left(\frac{1.27\rho_\lambda Ф}{MPE}\right)^{\frac{1}{2}} ''')
 
         if diffuse_reflection != 0 and specular_reflection != 0:
             st.write(result, unsafe_allow_html=True)
