@@ -5,6 +5,7 @@ from streamlit_lottie import st_lottie
 import streamlit.components.v1 as components
 from PIL import Image
 import math
+import urllib.request
 
 # functions resposibble for the animation
 # If we are using it localy
