@@ -1,6 +1,4 @@
 streamlit
-numpy
-matplotlib
 streamlit-lottie
 streamlit.components.v1
 PIL
