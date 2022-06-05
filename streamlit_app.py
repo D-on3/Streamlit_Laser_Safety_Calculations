@@ -116,6 +116,7 @@ elif add_selectbox == "Nominal Ocular Hazard Distance (NOHD)":
     with st.container():
         lefts_column, _right_column = st.columns(2)
         with lefts_column:
+            formula_in_order = urllib.request.urlretrieve('https://github.com/D-on3/Streamlit_Laser_Safety_Calculations/blob/main/jpg/where_nohd.png',"where_nohd.png")
             image = Image.open(r'jpg\where_nohd.png')
             st.image(image)
 
