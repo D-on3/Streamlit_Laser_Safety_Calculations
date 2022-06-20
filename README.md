@@ -6,14 +6,13 @@ This site was built using [Streamlit](https://streamlit.io/).
 
 https://user-images.githubusercontent.com/104354779/174509619-486e9020-5aff-45df-bc45-f9facb1da595.mp4
 
-# The application has all the nessecery calculations related to Laser Safety
-# with full explanation for the given equations.
+# The application has all the nessecery calculations related to Laser Safety with full explanation for the given equations.
 
 # Features:
   Imported HTML and CSS in order the webpage to has clean and esthetic look.
-  Contact form for future collaboration and questions.(This form was used from [FormSubmit.co]([https://formsubmit.co/?utm_source=formsubmit.co&utm_medium=site%20link&utm_campaign=submission%20page)]).   service for the task)
+  Contact form for future collaboration and questions.(This form was used from [FormSubmit.co]([[https://formsubmit.co/?utm_source=formsubmit.co&utm_medium=site%20link&utm_campaign=submission%20page])   service for the task)
   Diffrent levels (Menu) of the application give the possibility of the user to have maximum
-simplified user interface.
+  simplified user interface.
   Visual effect: Added lottie-files - small - json animations
 
 # Future ideas:
