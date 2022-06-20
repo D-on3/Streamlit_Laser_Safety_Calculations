@@ -24,6 +24,3 @@ simplified user interface.
 -Inovations in laser technologies 
 - Intresting facts about lasers.
 - Additive manifacturing and metal 3d printing 
-
-# ToDo:
--add video 
