@@ -4,17 +4,17 @@ Laser Safety Calculations
 The application is deployed at : https://share.streamlit.io/d-on3/streamlit_laser_safety_calculations/main
 
 
-The application has all the nessecery calculations related to Laser Safety
- with full explanation for the given equations.
+# The application has all the nessecery calculations related to Laser Safety
+# with full explanation for the given equations.
 
-Features:
+# Features:
 -Imported HTML and CSS in order the webpage to has clean and esthetic look.
--Contact form for future collaboration and questions.
+-Contact form for future collaboration and questions.(Used https://formsubmit.co/?utm_source=formsubmit.co&utm_medium=site%20link&utm_campaign=submission%20page service for the task)
 -Diffrent levels (Menu) of the application give the possibility of the user to have maximum
 simplified user interface.
 -Visual effect: Added lottie-files - small - json animations
 
-Future ideas:
+# Future ideas:
 -Counter of the calculations 
 -Add more detailed info about other aspects of Laser Safety and its importance.
 -Change the topic and tittle of the web-page add more information about Laser Technologies in general.
@@ -24,5 +24,5 @@ Future ideas:
 - Intresting facts about lasers.
 - Additive manifacturing and metal 3d printing 
 
-#ToDo:
+# ToDo:
 -add video 
